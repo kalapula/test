@@ -13,17 +13,17 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Building..'
+                bat "echo Building..."
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                bat "echo Testing..."
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                bat "echo Deploying..."
             }
         }
     }
