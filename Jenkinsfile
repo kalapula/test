@@ -1,14 +1,16 @@
 pipeline {  
     agent any
+
+     script {
+        scmVars = checkout scm
+        branchName = scmVars.GIT_BRANCH
+        workspace = pwd()
+    }
+
     stages {
         stage('Fetch dependencies') {
             steps {
                 bat "echo '########## FETCH DEPENDENCIES ##########'"
-                script {
-                    scmVars = checkout scm
-                    branchName = scmVars.GIT_BRANCH
-                    workspace = pwd()
-                }
                 bat "echo 'My branch is: ${branchName}'"
                 bat "echo 'workspace: ${workspace}'"
                 bat "cd my-app && del /q node_modules"
