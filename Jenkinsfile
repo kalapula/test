@@ -1,9 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('build') {
+        stage('Fetch dependencies') {
             steps {
-                sh 'npm --version'
+                sh "echo 'My branch is: ${env.BRANCH_NAME}'"
+                sh 'rm -rf node_modules'
+                nodejs('Node 8.12') {
+                    sh 'npm install'
+                }
             }
         }
     }
