@@ -6,8 +6,10 @@ pipeline {
                 script {
                     scmVars = checkout scm
                     branchName = scmVars.GIT_BRANCH
+                    workspace = pwd()
                 }
                 bat "echo 'My branch is: ${branchName}'"
+                bat "echo 'workspace: ${workspace}'"
                 bat "cd 'C:\\Program Files (x86)\\Jenkins\\workspace\\test-pipeline\\my-app'"
                 bat 'rmdir node_modules'
             }
