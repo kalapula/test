@@ -15,7 +15,7 @@ pipeline {
             }
         }
         stage('Build') {
-            steps {
+            // steps {
                 script {
                     switch(branchName) {
                         case "develop":
@@ -30,7 +30,7 @@ pipeline {
                     }
                 }
                 bat "echo 'result: ${result}'"
-            }
+            // }
         }
         stage('Test') {
             steps {
