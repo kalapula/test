@@ -15,13 +15,13 @@ pipeline {
             }
         }
         stage('Build') {
-            // steps {
+            steps {
                 script {
                     switch(branchName) {
                         case "develop":
                             result = "dev"
                             break
-                        case ["master"]:
+                        case "master":
                             result = "list"
                             break
                         default:
@@ -30,7 +30,7 @@ pipeline {
                     }
                 }
                 bat "echo 'result: ${result}'"
-            // }
+            }
         }
         stage('Test') {
             steps {
