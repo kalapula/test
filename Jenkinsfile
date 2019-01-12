@@ -16,7 +16,20 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat "echo ''########## BUILD ##########'"
+                script {
+                    switch(branchName) {
+                        case "develop":
+                            result = "dev"
+                            break
+                        case ["master"]:
+                            result = "list"
+                            break
+                        default:
+                            result = "def"
+                            break
+                    }
+                }
+                bat "echo 'result: ${result}'"
             }
         }
         stage('Test') {
