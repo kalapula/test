@@ -11,8 +11,7 @@ pipeline {
                 }
                 bat "echo 'My branch is: ${branchName}'"
                 bat "echo 'workspace: ${workspace}'"
-                bat "cd my-app"
-                bat "del /q node_modules"
+                bat "cd my-app && del /q node_modules"
             }
         }
         stage('Build') {
