@@ -18,11 +18,11 @@ pipeline {
             steps {
                 script {
                     switch(branchName) {
-                        case "develop":
-                            result = "dev"
+                        case "origin/develop":
+                            result = "develop"
                             break
-                        case "master":
-                            result = "list"
+                        case "origin/master":
+                            result = "master"
                             break
                         default:
                             result = "def"
