@@ -11,7 +11,7 @@ pipeline {
                 }
                 bat "echo 'My branch is: ${branchName}'"
                 bat "echo 'workspace: ${workspace}'"
-                bat "dir('${workspace}/my-app')"
+                bat "dir('${workspace}')"
                 bat 'rmdir node_modules'
             }
         }
