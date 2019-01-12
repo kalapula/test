@@ -11,7 +11,7 @@ pipeline {
                 }
                 bat "echo 'My branch is: ${branchName}'"
                 bat "echo 'workspace: ${workspace}'"
-                bat "cd '${JENKINS_HOME}\\my-app'"
+                bat "cd '${workspace}\\my-app'"
                 bat 'rmdir node_modules'
             }
         }
