@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Fetch dependencies') {
             steps {
+                bat "echo '########## FETCH DEPENDENCIES ##########'"
                 script {
                     scmVars = checkout scm
                     branchName = scmVars.GIT_BRANCH
@@ -10,23 +11,23 @@ pipeline {
                 }
                 bat "echo 'My branch is: ${branchName}'"
                 bat "echo 'workspace: ${workspace}'"
-                bat "cd 'C:\\Program Files (x86)\\Jenkins\\workspace\\test-pipeline\\my-app'"
+                bat "cd my-app"
                 bat 'rmdir node_modules'
             }
         }
         stage('Build') {
             steps {
-                bat "echo Building..."
+                bat "echo ''########## BUILD ##########'"
             }
         }
         stage('Test') {
             steps {
-                bat "echo Testing..."
+                bat "echo '########## TEST ##########'"
             }
         }
         stage('Deploy') {
             steps {
-                bat "echo Deploying..."
+                bat "echo '########## DEPLOY ##########'"
             }
         }
     }
