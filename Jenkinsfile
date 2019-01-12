@@ -1,12 +1,12 @@
 pipeline {  
-    agent any
-
-     script {
-        scmVars = checkout scm
-        branchName = scmVars.GIT_BRANCH
-        workspace = pwd()
+    environment {
+        script {
+            scmVars = checkout scm
+            branchName = scmVars.GIT_BRANCH
+            workspace = pwd()
+        }
     }
-
+    agent any
     stages {
         stage('Fetch dependencies') {
             steps {
