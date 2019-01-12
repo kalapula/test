@@ -12,7 +12,7 @@ pipeline {
                 bat "echo 'My branch is: ${branchName}'"
                 bat "echo 'workspace: ${workspace}'"
                 bat "cd my-app"
-                bat 'rmdir node_modules'
+                bat "del /f /s /q 'node_modules'"
             }
         }
         stage('Build') {
