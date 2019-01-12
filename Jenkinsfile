@@ -1,7 +1,7 @@
-def scmVars = checkout scm
-def branchName = scmVars.GIT_BRANCH
-
 pipeline {
+    def scmVars = checkout scm
+    def branchName = scmVars.GIT_BRANCH
+    
     agent any
     stages {
         stage('Fetch dependencies') {
