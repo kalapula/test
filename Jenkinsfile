@@ -19,10 +19,10 @@ pipeline {
                 script {
                     switch(branchName) {
                         case "develop":
-                            result = "dev"
+                            result = "develop"
                             break
                         case ["master"]:
-                            result = "list"
+                            result = "master"
                             break
                         default:
                             result = "def"
