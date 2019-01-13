@@ -49,6 +49,7 @@ pipeline {
             bat "echo '${GIT_BRANCH}'"
             bat "echo '${GIT_URL}'"
             bat "echo '${GIT_COMMIT}'"
+            bat "echo 'git show -s --pretty=%an'"
 
             // slackSend channel: '#admin',
             //     color: COLOR_MAP[currentBuild.currentResult],
