@@ -13,6 +13,7 @@ pipeline {
                 bat "echo ${GIT_BRANCH}"
                 bat "echo 'workspace: ${workspace}'"
                 bat "cd my-app && del /q node_modules"
+                bat "git config --global url.'http://'.insteadOf git://"
             }
         }
         stage('Build') {
