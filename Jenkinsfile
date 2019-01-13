@@ -44,16 +44,13 @@ pipeline {
         }
     }
     post {
-        always {
-
-            bat "echo '${GIT_BRANCH}'"
-            bat "echo '${GIT_URL}'"
-            bat "echo '${GIT_COMMIT}'"
-            bat "git show -s --pretty=%an"
-
-            // slackSend channel: '#admin',
-            //     color: COLOR_MAP[currentBuild.currentResult],
-            //     message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n More info at: ${env.BUILD_URL}" 
+        success {
+            // slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+            bat "echo 'SUCCESSFUL: Job ${env.JOB_NAME} [${env.BUILD_NUMBER}] (${env.BUILD_URL})'"
         }
+        failure {
+            bat "echo 'FAILED: Job ${env.JOB_NAME} [${env.BUILD_NUMBER}] (${env.BUILD_URL})'"
+        }
+        
     }
 }
