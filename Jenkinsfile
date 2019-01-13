@@ -45,11 +45,10 @@ pipeline {
     }
     post {
         always {
-            script {
-                shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
-            }
 
-            sh "echo 'user: ${shortCommit}'"
+            sh "echo '${GIT_BRANCH}'"
+            sh "echo '${GIT_URL}'"
+            sh "echo '${GIT_COMMIT}'"
 
             // slackSend channel: '#admin',
             //     color: COLOR_MAP[currentBuild.currentResult],
