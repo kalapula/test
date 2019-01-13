@@ -44,13 +44,15 @@ pipeline {
         }
     }
     post {
+        always {
 
-            sh "echo '${GIT_BRANCH}'"
-            sh "echo '${GIT_URL}'"
-            sh "echo '${GIT_COMMIT}'"
+            bat "echo '${GIT_BRANCH}'"
+            bat "echo '${GIT_URL}'"
+            bat "echo '${GIT_COMMIT}'"
 
             // slackSend channel: '#admin',
             //     color: COLOR_MAP[currentBuild.currentResult],
             //     message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n More info at: ${env.BUILD_URL}" 
+        }
     }
 }
