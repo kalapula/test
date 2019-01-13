@@ -10,6 +10,7 @@ pipeline {
                     workspace = pwd()
                 }
                 bat "echo 'My branch is: ${branchName}'"
+                bat "echo ${GIT_BRANCH}"
                 bat "echo 'workspace: ${workspace}'"
                 bat "cd my-app && del /q node_modules"
             }
@@ -17,7 +18,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    switch(branchName) {
+                    switch(GIT_BRANCH) {
                         case "origin/develop":
                             result = "develop"
                             break
@@ -51,6 +52,6 @@ pipeline {
         failure {
             bat "echo 'FAILED: Job ${env.JOB_NAME} [${env.BUILD_NUMBER}] (${env.BUILD_URL})'"
         }
-        
+
     }
 }
