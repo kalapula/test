@@ -44,8 +44,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 bat "echo '########## DEPLOY ##########'"
-                bat "cd my-app"
-                bat "npm run build"
+                bat "cd my-app && npm run build"
             }
         }
     }
