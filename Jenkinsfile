@@ -46,10 +46,10 @@ pipeline {
     post {
         always {
             script {
-                BUILD_USER = getBuildUser()
+                shortCommit = sh(returnStdout: true, script: "git log -n 1 --pretty=format:'%h'").trim()
             }
 
-            sh "echo 'user: ${BUILD_USER}'"
+            sh "echo 'user: ${shortCommit}'"
 
             // slackSend channel: '#admin',
             //     color: COLOR_MAP[currentBuild.currentResult],
