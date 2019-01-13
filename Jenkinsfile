@@ -43,4 +43,17 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            script {
+                BUILD_USER = getBuildUser()
+            }
+
+            sh "echo 'user: ${BUILD_USER}'"
+
+            // slackSend channel: '#admin',
+            //     color: COLOR_MAP[currentBuild.currentResult],
+            //     message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n More info at: ${env.BUILD_URL}" 
+        }
+    }
 }
