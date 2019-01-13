@@ -44,7 +44,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 bat "echo '########## DEPLOY ##########'"
-                bat "ng build"
+                bat "npm run build"
             }
         }
     }
