@@ -45,6 +45,7 @@ pipeline {
             steps {
                 bat "echo '########## DEPLOY ##########'"
                 bat "cd my-app && npm run build"
+                bat "ping iwi-w-kampus-p"
             }
         }
     }
